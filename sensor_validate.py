@@ -10,23 +10,24 @@ def diffrentialReading_below_maxDelta(value, nextValue, maxDelta):
     return False
   return True
 
-def is_values_None(values):
+def is_values_notNone(values):
   try:
     if(len(values)<=0):
       raise ListEmptyError
     else:
-      return False
+      return True
   except ListEmptyError:
     print("No values read!")
-    return True
+    return None
 
 
 def validate_reading(values, param):
-  if(not is_values_None(values)):
-    return None
   last_but_one_reading = len(values) - 1
   for i in range(last_but_one_reading):
     if(not differentialReading_below_maxDelta(values[i], values[i + 1], maxDelta[param])):
-      return False
-  return True
+      ValidFlag=False
+  ValidFlag=is_values_notNone(values)
+  return ValidFlag
+
+  
   
