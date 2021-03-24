@@ -5,20 +5,28 @@ maxDelta={'soc':0.05, 'current':0.1}
 class ListEmptyError(Exception):
     pass
 
-def readings_below_maxDelta(value, nextValue, maxDelta):
+def diffrentialReading_below_maxDelta(value, nextValue, maxDelta):
   if nextValue - value > maxDelta:
     return False
   return True
 
-def validate_reading(values, param):
+def is_values_None(values):
   try:
     if(len(values)<=0):
       raise ListEmptyError
-    last_but_one_reading = len(values) - 1
-    for i in range(last_but_one_reading):
-      if(not readings_below_maxDelta(values[i], values[i + 1], maxDelta[param])):
-        return False
-    return True
+    else:
+      return False
   except ListEmptyError:
     print("No values read!")
-    return
+    return True
+
+
+def validate_readings(values, param):
+  if(not is_values_None(values)):
+    return None
+  last_but_one_reading = len(values) - 1
+  for i in range(last_but_one_reading):
+    if(not differentialReading_below_maxDelta(values[i], values[i + 1], maxDelta[param])):
+      return False
+  return True
+  
