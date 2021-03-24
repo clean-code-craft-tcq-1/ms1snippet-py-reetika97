@@ -5,7 +5,7 @@ maxDelta={'soc':0.05, 'current':0.1}
 class ListEmptyError(Exception):
     pass
 
-def diffrentialReading_below_maxDelta(value, nextValue, maxDelta):
+def differentialReading_below_maxDelta(value, nextValue, maxDelta):
   if nextValue - value > maxDelta:
     return False
   return True
