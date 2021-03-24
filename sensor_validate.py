@@ -26,6 +26,7 @@ def validate_reading(values, param):
   for i in range(last_but_one_reading):
     if(not differentialReading_below_maxDelta(values[i], values[i + 1], maxDelta[param])):
       ValidFlag=False
+      return ValidFlag
   ValidFlag=is_values_notNone(values)
   return ValidFlag
 
