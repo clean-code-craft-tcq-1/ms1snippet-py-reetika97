@@ -20,5 +20,6 @@ def validate_reading(values, param):
         return False
     return True
   except ListEmptyError:
+    print("No values read!")
     return
 
