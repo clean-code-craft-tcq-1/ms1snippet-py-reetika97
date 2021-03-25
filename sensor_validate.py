@@ -7,7 +7,7 @@ maxDelta['lowest_maxDelta']=lowest_maxDelta #appending lowest to the dictionary 
 class ListEmptyError(Exception):
     pass
 
-def differentialReading_below_maxDelta(value, nextValue, maxDelta):
+def differentialReading_notAbove_maxDelta(value, nextValue, maxDelta):
   if nextValue - value > maxDelta:
     return False
   return True
@@ -30,7 +30,7 @@ def is_values_notNone(values):
 def validate_reading(values, param='lowest_maxDelta'):
   last_but_one_reading = len(values) - 1
   for i in range(last_but_one_reading):
-    if(not differentialReading_below_maxDelta(values[i], values[i + 1], maxDelta[param])):
+    if(not differentialReading_notAbove_maxDelta(values[i], values[i + 1], maxDelta[param])):
       ValidFlag=False
       return ValidFlag
   ValidFlag=is_values_notNone(values)
