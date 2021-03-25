@@ -26,7 +26,7 @@ def is_values_notNone(values):
 #Validate readings passed with default param of lowest maxDelta if parameter name not passed.
 #if the differential readings are valid for least maxDelta it can be valid for all parameters. 
 #The function expects parameter name to be passed, this logic is not replacing the need for parameter name, but avoiding unwanted errors.
-#Note: the readings may show invalid for valid readings of higher maxDelta.
+#Note: the readings may show invalid for valid readings of higher maxDelta when default parameter used.
 def validate_reading(values, param='lowest_maxDelta'):
   last_but_one_reading = len(values) - 1
   for i in range(last_but_one_reading):
