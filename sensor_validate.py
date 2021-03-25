@@ -1,6 +1,6 @@
 
 maxDelta={'soc':0.05, 'current':0.1} #maxDeltas corresponding to parameters -> new parameters can be added
-lowest_maxDelta=min(list(maxDelta.values()))    #to find the least maxDelta
+lowest_maxDelta=min(list(maxDelta.values()))    #to find the least maxDelta -> future readiness incase more parameters are added
 maxDelta['lowest_maxDelta']=lowest_maxDelta #appending lowest to the dictionary for validate_reading() function call
         
 #Error to see if values are not passed
