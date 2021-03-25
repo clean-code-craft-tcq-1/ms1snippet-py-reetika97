@@ -12,8 +12,11 @@ class SensorValidatorTest(unittest.TestCase):
       sensor_validate.validate_reading([0.03, 0.03, 0.03, 0.33],'current')
     )
     
-  def test_reports_error_when_current_jumps(self):
+  def test_ignores_validation_when_values_none(self):
     self.assertTrue( sensor_validate.validate_reading([],'current') == None)
+    
+  def test_function_when_no_parameter_name_passed(self):
+    self.assertTrue( sensor_validate.validate_reading([0.0,0.01,0.02,0.04]))
 
 if __name__ == "__main__":
   unittest.main()
