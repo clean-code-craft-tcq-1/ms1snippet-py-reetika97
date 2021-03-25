@@ -28,13 +28,13 @@ class SensorValidatorTest(unittest.TestCase):
     
  #tests for differentialReading_below_maxDelta() function
   def test_function_when_no_parameter_name_passed(self):
-    self.assertTrue( sensor_validate.differentialReading_below_maxDelta(0.1,0.15,0.1))
+    self.assertTrue( sensor_validate.differentialReading_notAbove_maxDelta(0.1,0.15,0.1))
     
   def test_function_when_no_parameter_name_passed(self):
-    self.assertFalse( sensor_validate.differentialReading_below_maxDelta(0.1,0.21,0.1))
+    self.assertFalse( sensor_validate.differentialReading_notAbove_maxDelta(0.1,0.21,0.1))
     
   def test_function_when_no_parameter_name_passed(self):
-    self.assertTrue( sensor_validate.differentialReading_below_maxDelta(0.1,0.2,0.1))
+    self.assertTrue( sensor_validate.differentialReading_notAbove_maxDelta(0.1,0.2,0.1))
   
 if __name__ == "__main__":
   unittest.main()
